@@ -1,0 +1,51 @@
+{
+  "mcpServers": {
+    "pierre-laplace-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "LAPLACE",
+        "TARGET_CHAIN": "Sui",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "solve_laplace_gravitational_potential",
+          "description": "Computes harmonic solutions to Laplace's equation nabla^2 V = 0 in gravitational free space",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "boundary_conditions": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "boundary_conditions"
+            ]
+          }
+        },
+        {
+          "name": "evaluate_laplace_integral_transform",
+          "description": "Executes s-domain Laplace transformation of linear differential systems for stability proofs",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "time_function": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_function"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
